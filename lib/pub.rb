@@ -22,4 +22,8 @@ def pint_count
 def serve(pint)
 	self.pint.delete(pint)
 	end
+
+def accept(punter)
+	self.punter << punter
+	end
 end
