@@ -9,11 +9,6 @@ describe Punter do
 		expect(punter.drunk?).to eq(false)
 	end
 
-	it "should be able to order pint" do
-		punter.order(pint)
-		expect(punter.served?).to eq true
-	end
-
 	it "should be able to drink a pint" do
 		punter.down(pint)
 		expect(punter.pint_count).to eq 1
@@ -23,4 +18,11 @@ describe Punter do
 		10.times{punter.down(pint)}
 		expect(punter.drunk?).to eq true
 	end
+
+	it "should be able to get paralytic" do
+		20.times{punter.down(pint)}
+		expect(punter.paralytic?).to eq true
+	end
+
+	
 end

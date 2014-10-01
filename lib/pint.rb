@@ -24,5 +24,6 @@ end
 
 def self.kronenberg
 	new("kronenberg")
-	end
+  end
+
 end

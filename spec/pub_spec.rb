@@ -3,7 +3,7 @@ require 'pub'
 describe Pub do 
 
 	let(:pub){Pub.new}
-	let(:punter){double :punter}
+	let(:punter){double :punter, :sobriety => true}
 	let(:pint){double :pint}
 
 	it "should be empty" do
@@ -27,5 +27,11 @@ describe Pub do
 
 	it "should accept a punter into a pub" do
 		expect{pub.accept(punter)}.to change{pub.punter_count}.by 1
+	end
+
+	it "should not accept punter if he is drunk" do
+		10.times{allow(punter).to receive(:down){pint}}
+		expect{pub.accept(punter)}.to raise_error "You're too pissed. You're not coming in!"
+
 	end
 end

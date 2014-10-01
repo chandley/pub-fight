@@ -26,6 +26,7 @@ def served?
 	@served = true
 end
 
-def order(pint)
-	end
+def paralytic?
+	@paralytic = true
+  end
 end
