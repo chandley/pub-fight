@@ -7,7 +7,7 @@ def initialize
 end
 
 def drunk?
-	if intoxication.count == 10
+	if intoxication.count >= 10
 		drunk = true
 	else
 		drunk = false
