@@ -1,13 +1,13 @@
 class Punter
 
-	attr_accessor :sobriety, :drunk
+	attr_accessor :intoxication, :drunk
 
 def initialize
-	@sobriety = []
+	@intoxication = []
 end
 
 def drunk?
-	if sobriety.count == 10
+	if intoxication.count == 10
 		drunk = true
 	else
 		drunk = false
@@ -15,11 +15,11 @@ def drunk?
 end
 
 def down(pint)
-	self.sobriety << pint
+	self.intoxication << pint
 end
 
 def pint_count
-	self.sobriety.count
+	self.intoxication.count
 end
 
 def served?
@@ -28,5 +28,15 @@ end
 
 def paralytic?
 	@paralytic = true
-  end
+ end
+
+def enter(pub)
+	pub.accept(self)
+end
+
+def move(pub1, pub2)
+	pub1.expel(self)
+	pub2.accept(self)
+end
+
 end

@@ -26,8 +26,11 @@ def serve(pint)
 end
 
 def accept(punter)
-	raise "You're too pissed. You're not coming in!" if punter.sobriety == 10
+	raise "You're too pissed. You're not coming in!" if punter.intoxication == 10
 	self.punter << punter
+	end
 
+	def expel(punter)
+		@punter.delete(punter)
 	end
 end
