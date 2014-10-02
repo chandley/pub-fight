@@ -26,7 +26,7 @@ def serve(pint)
 end
 
 def accept(punter)
-	raise "You're too pissed. You're not coming in!" if punter.intoxication == 10
+	raise "You're too pissed. You're not coming in!" if punter.intoxication#should be .count method == 10
 	self.punter << punter
 	end
 

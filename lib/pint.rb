@@ -2,7 +2,7 @@ class Pint
 
 attr_accessor :name
 
-def initialize(name)
+def initialize(name = "carling")
 	@name = name
 	end
 
@@ -12,11 +12,11 @@ end
 
 def full?
 	@full = true
-	end
+end
 
 def break
 	@break = true
-	end
+end
 	
 def self.stella
 	new("stella")
