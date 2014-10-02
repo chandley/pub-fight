@@ -38,5 +38,27 @@ describe Punter do
 		punter.move(pub1, pub2)
 	end
 
+	it "should be able to glass other punters" do
+		punter1 = Punter.new
+		punter2 = Punter.new
+		punter1.glass(punter2)
+		expect(punter2.wounds).to eq 1
+	end
+
+	it "should be hospitalised after 3 blows" do 
+		punter1 = Punter.new
+		punter2 = Punter.new
+		allow(pub).to receive(:expel)
+		3.times {punter1.glass(punter2)}
+		expect(punter2).to be_hospitalised
+	end
+
+	# it "should be expelled from the pub after causing GBH" do 
+	# 	punter1 = Punter.new
+	# 	punter2 = Punter.new
+	# 	expect(pub).to receive(:expel)
+	# 	3.times {punter1.glass(punter2)}
+	# end
+
 	
 end
