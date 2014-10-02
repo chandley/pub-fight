@@ -26,7 +26,7 @@ describe Pub do
 	end
 
 	it "should accept a punter into a pub" do
-		allow(punter).to receive(:intoxication)
+		allow(punter).to receive(:drunk)
 		expect{pub.accept(punter)}.to change{pub.punter_count}.by 1
 	end
 
@@ -37,7 +37,7 @@ describe Pub do
 	end
 
 	it "should be able to expel punters" do 
-		allow(punter).to receive(:intoxication)
+		allow(punter).to receive(:drunk)
 		pub.accept(punter)
 		expect(lambda {pub.expel(punter)}).to change{pub.punter_count}.by(-1)
 	end

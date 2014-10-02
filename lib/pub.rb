@@ -2,7 +2,7 @@ require_relative 'punter'
 
 class Pub
 
-attr_accessor :pint, :punter
+attr_accessor :pint, :punter, :drunk
 
 def initialize
 	@punter = []
@@ -26,7 +26,7 @@ def serve(pint)
 end
 
 def accept(punter)
-	raise "You're too pissed. You're not coming in!" if punter.drunk?
+	raise "You're too pissed. You're not coming in!" if punter.drunk
 	self.punter << punter
 	end
 
