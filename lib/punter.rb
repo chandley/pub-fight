@@ -16,7 +16,7 @@ def drunk?
 end
 
 def down(pint)
-	# pint.drink!
+	pint.drink!
 	self.intoxication << pint
 end
 

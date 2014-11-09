@@ -6,23 +6,32 @@ describe Punter do
 	let(:pint){double :pint}
 	let(:pub) {double :pub}
 
+	def down_double_pint 
+		expect(pint).to receive(:drink!)
+		punter.down(pint)
+	end
+
+
 	it "should not be drunk" do
 		expect(punter).not_to be_drunk	
 	end
 
 	it "should be able to drink a pint" do
-		#refactor
-		punter.down(pint)
+		down_double_pint
+	end
+
+	it "should increase intoxication after drinking a pint" do
+		down_double_pint
 		expect(punter.pint_count).to eq 1
 	end
 
 	it "should be able to get drunk" do
-		10.times{punter.down(pint)}
+		10.times{down_double_pint}
 		expect(punter).to be_drunk
 	end
 
 	it "should be able to get paralytic" do
-		20.times{punter.down(pint)}
+		20.times{down_double_pint}
 		expect(punter).to be_paralytic
 	end
 
