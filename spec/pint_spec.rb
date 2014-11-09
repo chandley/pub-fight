@@ -40,4 +40,10 @@ let(:pint){Pint.new("stella")}
 		pint.drink!
 		expect(pint).to_not be_full
 	end
+
+	it "can't be drunk if already empty" do
+		pint.drink!
+		expect(lambda {pint.drink!}).to raise_error(RuntimeError)
+	end
 end
+

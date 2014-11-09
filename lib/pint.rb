@@ -22,6 +22,7 @@ def break!
 end
 
 def drink!
+  raise "Can't drink empty pint" unless @full
   @full = false
 end
 	
