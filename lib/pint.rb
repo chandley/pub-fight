@@ -4,18 +4,20 @@ attr_accessor :name
 
 def initialize(name = "carling")
 	@name = name
-	end
+  @full = true
+  @broken = false
+end
 
 def broken?
-	@broken = false
+	@broken
 end
 
 def full?
-	@full = true
+	@full
 end
 
-def break
-	@break = true
+def break!
+	@broken = true
 end
 	
 def self.stella

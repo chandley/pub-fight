@@ -6,17 +6,15 @@ let(:pint){Pint.new("stella")}
 let(:punter){double :punter}
 
 	it "should not be broken" do
-		expect(pint.broken?).to eq false
+		expect(pint).not_to be_broken
 	end
 
-	it "should not be full" do
-		expect(pint.full?).to eq true
+	it "should start off full" do
+		expect(pint).to be_full
 	end
-
 
 	it "should have a name" do
-		lager = Pint.new("stella")
-		expect(lager.name).to eq ("stella")
+		expect(pint.name).to eq ("stella")
 	end
 
 	it "should be a stella pint" do
@@ -30,7 +28,7 @@ let(:punter){double :punter}
 	end
 
 	it "should be able to break" do
-		allow(punter).to receive(:break) { pint }
-		expect(pint.break).to eq true
+		pint.break!
+		expect(pint).to be_broken
 	end
 end
