@@ -3,7 +3,6 @@ require 'pint'
 describe Pint do
 
 let(:pint){Pint.new("stella")}
-let(:punter){double :punter}
 
 	it "should not be broken" do
 		expect(pint).not_to be_broken
@@ -30,5 +29,15 @@ let(:punter){double :punter}
 	it "should be able to break" do
 		pint.break!
 		expect(pint).to be_broken
+	end
+
+	it "is empty if broken" do
+		pint.break!
+		expect(pint).not_to be_full
+	end
+
+	it 'is empty after being drunk' do
+		pint.drink!
+		expect(pint).to_not be_full
 	end
 end

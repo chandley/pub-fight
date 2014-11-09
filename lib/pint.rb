@@ -18,6 +18,11 @@ end
 
 def break!
 	@broken = true
+  @full = false
+end
+
+def drink!
+  @full = false
 end
 	
 def self.stella
