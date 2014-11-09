@@ -1,27 +1,23 @@
 class Punter
 
-	attr_accessor :intoxication, :drunk, :wounds
+attr_accessor :wounds
 
 def initialize
-	@intoxication = []
+	@intoxication = 0
 	@wounds = 0
 end
 
 def drunk?
-	if intoxication.count >= 10
-		drunk = true
-	else
-		drunk = false
-	end
+	@intoxication >= 10 ? true : false
 end
 
 def down(pint)
 	pint.drink!
-	self.intoxication << pint
+	@intoxication += 1
 end
 
 def pint_count
-	self.intoxication.count
+	@intoxication
 end
 
 def served?
@@ -47,7 +43,7 @@ def glass(punter)
 	end
 
 def hospitalised?
-	self.wounds >= 3
+	@wounds >= 3
 end
 
 # def wound_count
